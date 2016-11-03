@@ -1,6 +1,11 @@
 //Julian McCarthy Solver
 export default function solver(string) {
-    return pedmas(string.split(' ').filter((element)=> element != ''));
+    let array = pedmas(string.split(' ').filter((element)=> element != ''));
+    //weirdness happend
+    if(array.length != 1 || isNaN(array[0])){
+        throw 'NaN'
+    }
+    return array[0];
 };
 
 //Pedmas factory: parens -> paren multipication -> exponents -> division -> multiply -> add -> subtract
@@ -39,12 +44,7 @@ function pedmas(array){
             }
         }
     });
-
-    //weirdness happend
-    if(array.length != 1 || isNaN(array[0])){
-        throw 'NaN'
-    }
-    return array[0];
+    return array;
 }
 
 function stringToOperator(array, index, operator){

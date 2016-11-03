@@ -4,6 +4,9 @@ export default function solver(string) {
     //weirdness happend
     if(array.length != 1 || isNaN(array[0])){
         throw 'NaN'
+    } else if(Array.isArray(array[0])) {
+        //this happens when doing paren stuff
+        return array[0][0];
     }
     return array[0];
 };

@@ -8,6 +8,9 @@ var replacement = [
   }, {
     reg: /\//g,
     dest: '÷'
+  }, {
+    reg: /\' '/g,
+    dest: ''
   }
 ];
 

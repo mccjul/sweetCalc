@@ -15,8 +15,6 @@ export default class App extends Component {
     }
     onButtonClick(type) {
       //String manipulation based on symbol
-      var cur;
-      var lastLetter;
       switch (type) {
       case 'c':
         this.setState({
@@ -47,21 +45,18 @@ export default class App extends Component {
       case '*':
       case '/':
       case '^':
-        cur = this.state.cur;
-        lastLetter = cur.slice(-1);
-        if (lastLetter === '+' || lastLetter === '-' || lastLetter === '*' || lastLetter === '/' || lastLetter === '^' || lastLetter === '(')
           this.setState({
-            cur: cur.slice(0, -1) + type
-          });
-        else
-          this.setState({
-            cur: this.state.cur + type
+            cur: this.state.cur + ' ' + type + ' '
           });
         break;
+      case '(':
+      case ')':
+        this.setState({
+          cur: this.state.cur === '0' ? type + ' ' : this.state.cur + ' ' + type + ' '
+        });
+        break;
       case '.':
-        cur = this.state.cur;
-        lastLetter = cur.slice(-1);
-        if (lastLetter !== '.') {
+        if (this.state.cur.slice(-1) !== '.') {
           this.setState({
             cur: this.state.cur + type
           });

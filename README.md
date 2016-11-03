@@ -1,4 +1,4 @@
-forked React Hot Boilerplate 
+forked React Hot Boilerplate and UI HACKED FROM https://github.com/LingyuCoder/react-calculator
 
 ### Usage
 

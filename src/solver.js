@@ -6,6 +6,8 @@ export default function solver(string) {
         throw 'NaN'
     } else if(Array.isArray(array[0])) {
         //this happens when doing paren stuff
+        if(isNaN(array[0][0]))
+            throw 'NaN'
         return array[0][0];
     }
     return array[0];
@@ -51,18 +53,19 @@ function pedmas(array){
 }
 
 function stringToOperator(array, index, operator){
-    let firstNumber = parseFloat(array[index - 1]);
-    let secondNumber = parseFloat(array[index + 1]);
-    if(operator == '^')
-        return Math.pow(firstNumber, secondNumber);
-    if(operator == '/')
-        return firstNumber / secondNumber;
-    if(operator == '*')
-        return firstNumber * secondNumber;
-    if(operator == '+')
-        return firstNumber + secondNumber;
-    if(operator == '-')
-        return firstNumber - secondNumber;
+  //For edmas
+  let firstNumber = parseFloat(array[index - 1]);
+  let secondNumber = parseFloat(array[index + 1]);
+  if(operator == '^')
+    return Math.pow(firstNumber, secondNumber);
+  if(operator == '/')
+    return firstNumber / secondNumber;
+  if(operator == '*')
+    return firstNumber * secondNumber;
+  if(operator == '+')
+    return firstNumber + secondNumber;
+  if(operator == '-')
+    return firstNumber - secondNumber;
 }
 
 function indexOfParenMultipication(array){

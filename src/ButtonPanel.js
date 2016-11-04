@@ -71,11 +71,11 @@ export default class ButtonPanel extends React.Component {
           <button className="button s1" data-code="191" data-value="/" onClick={this.onClick}>÷</button>
           <button className="button s1" data-code="189" data-value="-" onClick={this.onClick}>-</button>
           <button className="button s1" data-code="187" data-value="+" onClick={this.onClick}>+</button>
+
         </div>
         <div className="s1 column">
-          <div className="s1 row">
+            <button className="button s1" data-value="neg" onClick={this.onClick}>+/-</button>
             <button className="button s1 button-equal" data-code="13" data-value="=" onClick={this.onClick}>=</button>
-          </div>
         </div>
       </div>
     );

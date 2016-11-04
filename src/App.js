@@ -69,7 +69,12 @@ export default class App extends Component {
           cur: this.state.cur === '0' ? type + ' (' : this.state.cur + ' ' + type + ' ('
         });
         break;
-;
+      case 'neg':
+          if(this.state.cur.lastIndexOf(' ') != -1)
+            this.setState({
+              cur: this.state.cur.slice(0, this.state.cur.lastIndexOf(' ')) + '-' + this.state.cur.slice(this.state.cur.lastIndexOf(' ') + 1, str.length - 1)
+            });
+          break;
       default:
         this.setState({
           cur: this.state.cur === '0' ? type : this.state.cur + type

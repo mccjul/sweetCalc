@@ -73,7 +73,7 @@ function indexOfParenMultipication(array){
         return -1;
     for (let i = 0; i < array.length - 1; i++) {
         let isNumber = array[i] != '*' && array[i] != '/' && array[i] != '+' && array[i] != '-' && array[i] != '^' && array[i] != '(' && array[i] != ')';
-        let nextIsNumber = array[i + 1] != '*' && array[i + 1] != '/' && array[i + 1] != '+' && array[i + 1] != '^' && array[i + 1] != '(' && array[i + 1] != ')';
+        let nextIsNumber = array[i + 1] != '*' && array[i + 1] != '/' && array[i + 1] != '+' && array[i + 1] != '-' && array[i + 1] != '^' && array[i + 1] != '(' && array[i + 1] != ')';
         if(isNumber && nextIsNumber)
             return i;
     }

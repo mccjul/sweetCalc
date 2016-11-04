@@ -2,10 +2,12 @@
 export default function solver(string) {
     let array = pedmas(string.split(' ').filter((element)=> element != ''));
     //weirdness happend
-    if(array.length != 1 || isNaN(array[0]) || isNaN(array[0][0])){
+    if(array.length != 1 || isNaN(array[0])){
         throw 'NaN'
     } else if(Array.isArray(array[0])) {
         //this happens when doing paren stuff
+        if(isNaN(array[0][0]))
+            throw 'NaN'
         return array[0][0];
     }
     return array[0];
@@ -30,15 +32,6 @@ function pedmas(array){
         }
     }
 
-    ['sin', 'cos', 'tan'].forEach((element) => {
-        if(array.includes(element)){
-            while(array.indexOf(element) != -1) {
-                let index = array.indexOf(element);
-                array.splice(index, 2, stringToOperator(array, index, element));
-            }
-        }
-    });
-
     //If no operator is seperating the numbers
     if(indexOfParenMultipication(array) != -1){
         while(indexOfParenMultipication(array) != -1){
@@ -60,33 +53,19 @@ function pedmas(array){
 }
 
 function stringToOperator(array, index, operator){
-    try {
-        //For edmas
-        let firstNumber = parseFloat(array[index - 1]);
-        let secondNumber = parseFloat(array[index + 1]);
-        if(operator == '^')
-            return Math.pow(firstNumber, secondNumber);
-        if(operator == '/')
-            return firstNumber / secondNumber;
-        if(operator == '*')
-            return firstNumber * secondNumber;
-        if(operator == '+')
-            return firstNumber + secondNumber;
-        if(operator == '-')
-            return firstNumber - secondNumber;
-
-        //for trig
-        let trigNumber = parseFloat(array[index + 1]);
-        if(operator == 'sin')
-            return Math.sin(trigNumber);
-        if(operator == 'cos')
-            return Math.cos(trigNumber);
-        if(operator == 'tan')
-            return Math.tan(trigNumber);
-    } catch (e) {
-        throw 'NaN'
-    }
-
+  //For edmas
+  let firstNumber = parseFloat(array[index - 1]);
+  let secondNumber = parseFloat(array[index + 1]);
+  if(operator == '^')
+    return Math.pow(firstNumber, secondNumber);
+  if(operator == '/')
+    return firstNumber / secondNumber;
+  if(operator == '*')
+    return firstNumber * secondNumber;
+  if(operator == '+')
+    return firstNumber + secondNumber;
+  if(operator == '-')
+    return firstNumber - secondNumber;
 }
 
 function indexOfParenMultipication(array){

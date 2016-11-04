@@ -74,9 +74,6 @@ export default class ButtonPanel extends React.Component {
 
         </div>
         <div className="s1 column">
-            <button className="button s1" data-value="sin" onClick={this.onClick}>sin</button>
-            <button className="button s1" data-value="cos" onClick={this.onClick}>cos</button>
-            <button className="button s1" data-value="tan" onClick={this.onClick}>tan</button>
             <button className="button s1" data-value="neg" onClick={this.onClick}>+/-</button>
             <button className="button s1 button-equal" data-code="13" data-value="=" onClick={this.onClick}>=</button>
         </div>

@@ -16,6 +16,13 @@ export default class App extends Component {
     onButtonClick(type) {
       //String manipulation based on symbol
       switch (type) {
+
+      case 'neg':
+         // if(this.state.cur.lastIndexOf(' ') != -1)
+        this.setState({
+          cur: this.state.cur.slice(0, this.state.cur.lastIndexOf(' ')) + ' -' + this.state.cur.slice(this.state.cur.lastIndexOf(' ') + 1, this.state.cur.length - 1)
+        });
+        break;
       case 'c':
         this.setState({
           last: '',
@@ -62,19 +69,6 @@ export default class App extends Component {
           });
         }
         break;
-      case 'sin':
-      case 'cos':
-      case 'tan':
-        this.setState({
-          cur: this.state.cur === '0' ? type + ' (' : this.state.cur + ' ' + type + ' ('
-        });
-        break;
-      case 'neg':
-          if(this.state.cur.lastIndexOf(' ') != -1)
-            this.setState({
-              cur: this.state.cur.slice(0, this.state.cur.lastIndexOf(' ')) + '-' + this.state.cur.slice(this.state.cur.lastIndexOf(' ') + 1, str.length - 1)
-            });
-          break;
       default:
         this.setState({
           cur: this.state.cur === '0' ? type : this.state.cur + type

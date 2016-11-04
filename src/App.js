@@ -62,6 +62,14 @@ export default class App extends Component {
           });
         }
         break;
+      case 'sin':
+      case 'cos':
+      case 'tan':
+        this.setState({
+          cur: this.state.cur === '0' ? type + ' (' : this.state.cur + ' ' + type + ' ('
+        });
+        break;
+;
       default:
         this.setState({
           cur: this.state.cur === '0' ? type : this.state.cur + type

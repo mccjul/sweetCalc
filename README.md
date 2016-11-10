@@ -9,4 +9,4 @@ open http://localhost:3000
 ```
 
 solver works on its own - Some weirdness with the calculator though
-https://jsfiddle.net/Lnzjyq65/
+https://jsfiddle.net/Lnzjyq65/4/
